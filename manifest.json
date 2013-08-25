@@ -1,12 +1,13 @@
 {
   "name": "hello",
   "manifest_version": 2,
-  "version": "0.1",
+  "version": "0.2",
   "description": "descrizione applicazione hello",
   "icons": { "128": "icon.png" },
   "browser_action": {
       "default_title": "",
       "default_icon": "icon.png",
       "default_popup": "popup.html"
-  }
+  },
+  "options_page": "options.html"
 }
