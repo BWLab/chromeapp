@@ -1,22 +1,25 @@
-$(document).ready(function(){
+$(document).ready(function() {
     var storage = $.localStorage;
 
-    if(storage.isSet('color')){
-
-      $('#color').find('option').each(function(idx, el){
-        if($(el).val() == storage.get('color')){
-          el.selected = true;
-        }
-      }
-    );
+    if (chrome.extension.getBackgroundPage().isOption('color')) {
+        var _color = chrome.extension.getBackgroundPage().getOption('color');
+        $('#color').find('option').each(function(idx, el) {
+            if ($(el).val() == _color) {
+                el.selected = true;
+            }
+        });
     }
-    
-    //$('#color').find('option')
 
-
-    $('#save').on('click', function(){
-      var _color = $('#color').find('option:selected').val();
-      storage.set('color', _color);
-      $('#status').html('opzione salvata');
+    $('#save').on('click', function() {
+        var _color = $('#color').find('option:selected').val();
+       chrome.extension
+             .getBackgroundPage()
+            .saveOption(
+              [{
+                'value': _color,
+                'key': 'color'
+              }]);
+        $('#status').html('opzione salvata');
     })
-  });
+});
+
