@@ -1,0 +1,15 @@
+.box {
+    background: white;
+    padding: 15px
+}
+.boxhd {
+    height: 25%;
+    border-bottom: 1px solid black;
+    margin-bottom: 50px;
+}
+.boxbd {
+    height: 25%
+}
+.boxft {
+    height: 10%
+}
